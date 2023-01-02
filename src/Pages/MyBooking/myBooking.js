@@ -134,7 +134,7 @@ export default function MyBooking() {
                                                 <p className=''><b>Status</b></p>
                                                  {tiket.payment === 0 ? 
                                                 // { paymentStatus ? 
-                                                <Link to='/' style={{ textDecoration: 'none' }}>  
+                                                <Link to={`/payment/${tiket.id}`} style={{ textDecoration: 'none' }}>  
                                                     <button className='mx-5  text-white btn '
                                                     style={{ backgroundColor: '#FF7F23' }}><b>Waiting for payment</b>
                                                 </button> 

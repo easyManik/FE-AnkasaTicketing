@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Table from 'react-bootstrap/Table';
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from "react-redux";
@@ -8,9 +8,13 @@ import { Link } from 'react-router-dom';
 
 
 
+
 export default function GetAirlines() {
     const { airlines } = useSelector((state) => state.airlines);
     const dispatch = useDispatch();
+    const [page, setPage] = useState(1)
+    const totalPageAdmin = airlines.pagination.totalPage
+    const current = airlines.pagination.currentPage
     console.log(airlines)
 
     const deleteAirlin = (e, id) => {
@@ -21,14 +25,40 @@ export default function GetAirlines() {
     }
 
     useEffect(() => {
-        dispatch(getAirlines());
-    }, []);
+        dispatch(getAirlines(page));
+    }, [page]);
 
 
+    const pagenateNext = () => {
+        if (page === totalPageAdmin) {
+            setPage(page = totalPageAdmin)
+        } else {
+            setPage(page + 1)
+            console.log(page)
+        }
+    }
+    const pagenateM = () => {
+        if (page === 0) {
+            setPage(page = 1)
+        }
+        else {
+            setPage(page - 1)
+            console.log(page)
+        }
+    }
+
+
+  
     return (
         // <div>sssss</div>
         <div className='container'>
             <h5 className='text-center mb-4 mt-4'>DAFTAR AIRLINES </h5>
+            {/* pagination */}
+            <div className='d-flex justify-content-end mb-3 '>
+                <button className='btn btn page-item border-secondary' onClick={pagenateNext}>next</button>
+                <p className='px-2'>{current}/{totalPageAdmin}</p>
+                <button className='btn btn page-item border-secondary' onClick={pagenateM}>Previuw</button>
+            </div>
             <Table bordered hover >
                 <thead>
                     <tr className='text-center bg-light'>

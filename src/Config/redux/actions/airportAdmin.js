@@ -2,12 +2,12 @@ import axios from "axios";
 import swal from "sweetalert";
 
 
-  export const getAirportAdmin = (token) => async (dispatch) => {
+  export const getAirportAdmin = (token, page) => async (dispatch) => {
     return new Promise((resolve, reject) => {
       axios({
         method: "GET",
         baseURL: process.env.REACT_APP_API_BACKEND,
-        url:  `airport`,
+        url:  `airport?page=${page}`,
         //   data: id,
         headers: {
           Authorization: `Bearer ${token}`,

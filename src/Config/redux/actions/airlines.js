@@ -3,12 +3,12 @@ import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
 
 
-  export const getAirlines = (token) => async (dispatch) => {
+  export const getAirlines = (token, page) => async (dispatch) => {
     return new Promise((resolve, reject) => {
       axios({
         method: "GET",
         baseURL: process.env.REACT_APP_API_BACKEND,
-        url:  `airlines`,
+        url:  `airlines?page=${page}`,
         //   data: id,
         headers: {
           Authorization: `Bearer ${token}`,

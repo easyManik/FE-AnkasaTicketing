@@ -3,12 +3,12 @@ import swal from "sweetalert";
 
 
 
-  export const getAllTicket = () => async (dispatch) => {
+  export const getAllTicket = (page) => async (dispatch) => {
     return new Promise((resolve, reject) => {
       axios({
         method: "GET",
         baseURL: process.env.REACT_APP_API_BACKEND,
-        url:  `ticket`,
+        url:  `ticket?page=${page}`,
         //   data: id,
         // headers: {
         //   Authorization: `Bearer ${token}`,
