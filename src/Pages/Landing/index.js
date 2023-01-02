@@ -62,7 +62,8 @@ export default function Landing() {
                 </div>
                 {/* card */}
                 <div className='row mb-5 justify-content-between '>
-                    {airport.map((a) => (
+                { airport.data?.length >= 1  ? airport.data.map((a)=>   {return (
+                    // {airport.map((a) => (
                         <div className='col-lg-2 col-6 mb-5' style={{ width: '216px', height: '275px' }} key={a.id}>
                             <div className="card p-3 shadow p-2 mb-3 bg-body rounded">
                                 <>
@@ -77,7 +78,8 @@ export default function Landing() {
                                 </div></>
                             </div>
                         </div>
-                    ))}
+                    // ))}
+                    )}) : 'not data '}
                 </div>
                         <div className='d-flex justify-content-center mt-lg-3'>
                           <button className='btn bg-primary mx-2'><img className='img-fluid'src={i2} alt='' /></button>
