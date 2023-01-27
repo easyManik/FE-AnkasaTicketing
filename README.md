@@ -1,3 +1,12 @@
+<h1 align="center">ANKASA TICKETING</h1>
+
+<p align="center">
+  <img height="150" src="https://i.ibb.co/WFZVxPb/arkasa-logo.png"  />
+</p>
+<p align="center">
+  Built with React Js.
+</p>
+
 ## Table of Contents
 
 - [About the Project](#about-the-project)
